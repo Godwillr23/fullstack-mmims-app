@@ -1,0 +1,12 @@
+# Node
+/server/node_modules
+/server/.env
+
+# Angular
+/client/node_modules
+/client/dist
+
+# OS / Misc
+.DS_Store
+*.log
+.env
