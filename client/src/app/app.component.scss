@@ -1,0 +1,46 @@
+.header{
+    position: fixed;
+    height: 135px;
+    width: 100%;
+    background-image: url(/assets/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    top: 0;
+}
+
+.logo{
+    width: 50px;
+    top: 10px;
+    left: 15px;
+    position: absolute;
+}
+
+.text-start{
+    color: #fff;
+    font-size: 14px;
+    margin-top: 60px;
+    margin-left: 15px;
+    border-bottom: solid 1px #ccc;
+    margin-right: 15px;
+    padding-bottom: 5px;
+} 
+
+.content{
+    margin-top: auto;
+}
+
+.app-footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;  
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }

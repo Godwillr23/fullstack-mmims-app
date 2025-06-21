@@ -1,0 +1,15 @@
+<div class="progress-container mb-3">
+  <div class="progress-label text-center mb-1">
+    Step {{ currentStep }} of {{ totalSteps }}
+  </div>
+  <div class="progress">
+    <div
+      class="progress-bar bg-success"
+      role="progressbar"
+      [style.width.%]="(currentStep / totalSteps) * 100"
+      aria-valuemin="0"
+      [attr.aria-valuenow]="currentStep"
+      [attr.aria-valuemax]="totalSteps">
+    </div>
+  </div>
+</div>

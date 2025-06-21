@@ -1,0 +1,126 @@
+<div class="container d-flex justify-content-center min-vh-100">
+    <div class="shadow" style="width: 100%;">
+    <app-survey-progress-bar [currentStep]="1" [totalSteps]="10"></app-survey-progress-bar>
+      <h6 class="text-center" style="color: gold;">
+         PRE-FIELD ATTENDANCE REGISTER
+      </h6>
+      <br/>
+        <form (ngSubmit)="onSubmit()" [formGroup]="AttendanceForm" novalidate>
+
+        <!-- Client Details -->
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="ClientName" placeholder="Client Name" />
+            <div class="text-danger" *ngIf="submitted && AttendanceForm.controls['UpdateTo'].invalid">
+            Provide Field to Update To!
+            </div>
+        </div>
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="ClientBranchName" placeholder="Client's Branch Name" />
+            <div class="text-danger" *ngIf="submitted && AttendanceForm.controls['UpdateTo'].invalid">
+            Provide Field to Update To!
+            </div>
+        </div>
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="ProjectName" placeholder="Project's Name" />
+            <div class="text-danger" *ngIf="submitted && AttendanceForm.controls['UpdateTo'].invalid">
+            Provide Field to Update To!
+            </div>
+        </div>
+
+        <!-- Reporting Location -->
+        <div class="mb-2">
+            <select class="form-select" formControlName="ReportingLocation">
+            <option value="" disabled selected>Your Today’s Reporting Location</option>
+            <!-- <option *ngFor="let loc of locations" [value]="loc">{{ loc }}</option> -->
+            </select>
+        </div>
+
+        <!-- Office/Township -->
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="OfficeTownship" placeholder="MMIMS' Office/Township you are reporting at today" />
+        </div>
+
+        <!-- Admin & Leader -->
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="FacilitatorName" placeholder="Name of Person facilitating your today's Admin activities" />
+        </div>
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="TeamLeader" placeholder="Team Leader you are assigned to report to today" />
+        </div>
+
+        <!-- GPS Section -->
+        <div class="d-flex gap-2 mb-2">
+            <button type="button" class="btn btn-sm btn-outline-primary w-100">Download current GPS Coordinates 📍</button>
+        </div>
+        <div class="d-flex gap-2 mb-2">
+            <input type="text" class="form-control" formControlName="Latitude" placeholder="Lat." readonly />
+            <input type="text" class="form-control" formControlName="Longitude" placeholder="Long." readonly />
+        </div>
+
+        <div class="mb-2">
+            <button type="button" class="btn btn-sm btn-outline-primary w-100">Confirm Reporting Time & Date <span class="fas fa-clock"></span></button>
+        </div>
+
+        <!-- Date & Visit Time -->
+        <div class="d-flex gap-2 mb-2">
+            <input type="date" class="form-control" formControlName="VisitDate" readonly />
+            <input type="time" class="form-control" formControlName="VisitTime" readonly />
+        </div>
+        <div class="mb-2">
+            <button type="button" class="btn btn-sm btn-outline-primary w-100">Download current GPS-generated Street Address 📍</button>
+        </div>
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="GPSStreetAddress" placeholder="GPS-generated Street Address" readonly />
+        </div>
+        <!-- GPS Picture -->
+        <div class="mb-2">
+            <button type="button" class="btn btn-sm btn-outline-success w-100">Attach GPS Camera Picture of your Current Location 📍</button>
+        </div>
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="GPSPicture" placeholder="Current Picture Location" readonly />
+        </div>
+        <div class="mb-2">
+            <button type="button" class="btn btn-sm btn-outline-success w-100">Attach your current WhatsApp Location <span class="fab fa-whatsapp"></span></button>
+        </div>
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="WhatsappLocation" placeholder="Current WhatsApp Location" readonly />
+        </div>
+        <!-- Role -->
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="TodaysRole" placeholder="Register Your Today's Role" />
+        </div>
+
+        <!-- Team Partnering -->
+        <div class="mb-2">
+            <select class="form-select" formControlName="IsPartnering">
+            <option value="" disabled selected>Are you partnering/Accompanying a Team Member?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            </select>
+        </div>
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="PartnerName" placeholder="Who's a Team Member you are partnering/accompanying?" />
+        </div>
+
+        <!-- Vehicle Allocation -->
+        <div class="mb-2">
+            <select class="form-select" formControlName="VehicleAllocated">
+            <option value="" disabled selected>Have you been allocated a Vehicle to drive today?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            </select>
+        </div>
+        <div class="mb-2">
+            <input type="text" class="form-control" formControlName="VehicleDetails" placeholder="Vehicle you and/or your Team Leader are using Today" />
+        </div>
+        <br/>
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+  </div>
+  
+  <!-- <div *ngIf="isLoading" class="loader">
+    <app-loader></app-loader>
+  </div> -->
+  

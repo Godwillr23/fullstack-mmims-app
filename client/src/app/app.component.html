@@ -1,0 +1,32 @@
+<div class="header">
+    <img src="assets/applogo.png" alt="Logo" class="logo"/>
+    
+    <div *ngIf="isPageOnLogin" class="text-start mb-2">
+      <strong style="color: gold;">MMIMS ALCT/PS: 00{{UserId}}</strong><br />
+      <small>{{currentDateTime}}</small><br />
+      <small style="color: gold;">Long: {{longitude}} | Lat: {{latitude}}</small>
+    </div>
+
+    <div *ngIf="isPageOnLogin"
+        class="position-absolute top-0 end-0 p-2 text-end z-3"
+        style="border-radius: 8px;">
+      <img [src]="User?.ImageURL ? userImageUrl + User?.ImageURL : 'assets/defaultuser.png'"
+          alt="User"
+          class="profile-image mb-1"
+          style="width: 40px; height: 40px; border-radius: 50%;" />
+      <br />
+      <small *ngIf="User?.FirstName"  style="color: gold;">Name: <span style="color: #fff;">{{ User?.FirstName }} {{ User?.LastName }}</span></small><br />
+      <small *ngIf="User?.MMIMSAllocatedNo"  style="color: gold;">Emp No.: <span style="color: #fff;">{{ User?.MMIMSAllocatedNo }}</span></small><br />
+      <small *ngIf="User?.Role"  style="color: gold;">Role: <span style="color: #fff;">{{ User?.Role }}</span></small>
+    </div>
+    
+  </div>
+    <div *ngIf="loading" class="loader">
+    <app-loader></app-loader>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <footer class="app-footer">
+    <img src="assets/footer.png" alt="Footer Image" />
+  </footer>

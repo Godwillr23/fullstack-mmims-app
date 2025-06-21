@@ -1,0 +1,28 @@
+.card{
+    background-color: transparent;
+}
+
+.label{
+    color: #fff;
+}
+
+.back-btn{
+    color: #007bff; 
+    text-decoration: none;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.container{
+    padding-top: 150px;
+    padding-bottom: 80px;
+}
+
+h6{
+    font-size: 14px;
+}
+
+input[readonly] {
+    background-color: cadetblue;
+    cursor: not-allowed;     /* optional: change cursor */
+}

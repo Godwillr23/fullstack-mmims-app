@@ -1,0 +1,118 @@
+<!-- <div class="profile-card text-center"> -->
+  <div class="profile-card text-center container d-flex justify-content-center min-vh-100">
+    <div class="shadow" style="width: 100%; max-width: 400px;">
+    <h4 style="color: #fff;">
+        Welcome!<br />
+        <span class="text-warning">Market-Intel. Project</span>
+      </h4>     
+        
+    <img [src]="user?.ImageURL ? userImageUrl + user?.ImageURL : 'assets/defaultuser.png'" alt="User" class="profile-image"/>
+
+
+    <div class="section-title" style="color: #fff !important;">
+        MY PROFILE:
+        <!-- Logout Button -->
+         <br />
+        <a (click)="logout()" style="color: red; font-size: 14px; cursor: pointer;">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+
+    <div class="">
+      <div class="profile-row">
+        <!-- Left Column -->
+        <div class="col-md-6 left-col">
+          <!-- EMPLOYEE DETAILS -->
+          <div class="section-title">Employee Details</div>  
+          <div *ngIf="user?.LastName" class="info-row">
+            <div class="label">Surname:</div><div class="value">{{user?.LastName}}</div>
+          </div>
+  
+          <div *ngIf="user?.FirstName" class="info-row">
+            <div class="label">Name:</div><div class="value">{{user?.FirstName}}</div>
+          </div>
+  
+          <div *ngIf="user?.MiddleName" class="info-row">
+            <div class="label">Middle Name:</div><div class="value">{{user?.MiddleName}}</div>
+          </div>
+  
+          <div *ngIf="user?.IDNo" class="info-row">
+            <div class="label">ID Number:</div><div class="value">{{user?.IDNo}}</div>
+          </div>
+  
+          <!-- EMPLOYEMENT DETAILS -->
+          <div class="section-title">Employment Details</div>
+          <div *ngIf="user?.MMIMSAllocatedNo" class="info-row">
+            <div class="label">Emp No.:</div><div class="value">{{user?.MMIMSAllocatedNo}}</div>
+          </div>
+          <div *ngIf="user?.UserRole" class="info-row">
+            <div class="label">Role:</div><div class="value">{{user?.UserRole}}</div>
+          </div>
+          <div *ngIf="user?.IDNo" class="info-row">
+            <div class="label">Branch:</div><div class="value">HQ</div>
+          </div>
+          <div *ngIf="user?.EmploymentDate" class="info-row">
+            <div class="label">Start Date:</div><div class="value">{{user?.EmploymentDate}}</div>
+          </div>
+          <div class="my-2">
+            <a style="color: green;" (click)="redirect('update-profile')">Update Details <span class="fas fa-edit"></span></a>
+          </div>
+        </div>
+  
+        <!-- Right Column -->
+        <div class="col-md-6 right-col">
+          <!-- DRIVING DETAILS -->
+          <div class="section-title" *ngIf="user?.LicenceCode &&
+           user?.HasDriversLicence &&
+           user?.LicenceCode &&
+           user?.LicenceNo &&
+           user?.DriversLicense &&
+           user?.DurationDrivingExp"
+           >Driving Details</div>
+          <div *ngIf="user?.HasDriversLicence" class="info-row">
+            <div class="label">Has Driver's License:</div><div class="value">{{user?.HasDriversLicence}}</div>
+          </div>
+          <div *ngIf="user?.LicenceCode" class="info-row">
+            <div class="label">License Code:</div> <div class="value">{{user?.LicenceCode}}</div>
+          </div>
+          <div *ngIf="user?.LicenceNo" class="info-row">
+            <div class="label">License No.:</div> <div class="value">{{user?.LicenceNo}}</div>
+          </div>
+          <div *ngIf="user?.DriversLicense"  class="info-row">
+            <div class="label">License Card Status:</div> <div class="value">{{user?.DriversLicense}}</div>
+          </div>
+          <div *ngIf="user?.DurationDrivingExp" class="info-row">
+            <div class="label">Duration Driving:</div> <div class="value">{{user?.DurationDrivingExp}}</div>
+          </div>
+          <!-- DEVICE DETAILS -->
+          <div class="section-title mt-4">Device Details</div>
+          <div class="info-row">
+            <div class="label">Device Type:</div> <div class="value">Tablet Phone</div>
+          </div>
+          <div class="info-row">
+            <div class="label">Device IMEI:</div> <div class="value">86578 74657 89330</div>
+          </div>
+          <div class="info-row">
+            <div class="label">Device Ref:</div> <div class="value">MMIMS ALCT/PS/001</div>
+          </div>
+  
+          <!-- REPORTING DETAILS -->
+          <div class="section-title mt-4">Reporting Details</div>
+          <div class="info-row">
+            <div class="label">Team Leader:</div> <div class="value">Harmony Masego</div>
+          </div>
+          <div class="info-row">
+            <div class="label">Team Head:</div> <div class="value">THAM-100</div>
+          </div>
+          <div class="info-row">
+            <div class="label">Team HQ:</div> <div class="value">THAM-HQ01</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <a (click)="redirect('field-admin')" style="color: #0066ff; font-size: 12px;">SELF - ATTENDANCE REGISTER: <span style="color: gold;">SIGN-IN </span> <span class="fas fa-calculator submit-fa" aria-hidden="true"></span></a>
+    </div>
+  </div>
+  </div>
+  

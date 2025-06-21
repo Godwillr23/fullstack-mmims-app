@@ -1,0 +1,82 @@
+
+  .profile-card {
+    margin-top: 75px !important;
+    padding: 20px;
+    padding-top: 70px;
+  }
+
+  .text-start{
+    color: #fff;
+    font-size: 14px;
+  } 
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+  }
+  .section-title {
+    color: gold;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  .btn-update {
+    background-color: #0066ff;
+    color: white;
+  }
+  
+  .label {
+    font-weight: 600;
+    display: inline-block;
+    width: 130px;
+    color: dodgerblue;
+    font-size: 12px;
+  }
+  
+  .value {
+    display: inline-block;
+    color: #ccc;
+    font-size: 12px;
+  }
+  
+  .col-md-6{
+    width: 50%;
+  }
+
+  .left-col
+  {
+    text-align: left;
+  }
+
+  .right-col{
+    text-align: right;
+  }
+
+  .profile-row {
+    display: flex;
+    }
+
+  .info-row {
+    display: inline-grid;
+  }
+  
+  .submit-fa{
+    width: 50px;
+    height: 50px;
+    background-color: gold;
+    border-radius: 50%;
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    color: #0066ff;
+    font-size: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-center{
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }

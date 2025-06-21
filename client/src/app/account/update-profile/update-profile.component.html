@@ -1,0 +1,52 @@
+<div class="container d-flex justify-content-center min-vh-100">
+  <div class="shadow position-relative p-3" style="width: 100%;">
+
+    <!-- Close Icon -->
+    <div class="text-end" style="margin-top: -10px; margin-bottom: 10px;">
+      <a class="fas fa-times" 
+         style="cursor: pointer; font-size: 1.2rem; color: #fff;text-decoration: none;" 
+         href="javascript:history.back()"></a>
+    </div>
+
+    <!-- Header -->
+    <h3 class="text-center" style="color: gold; margin-top: revert;">
+      <span class="fas fa-edit"></span> Request Profile Update
+      <br />
+    </h3>
+
+    <!-- Form -->
+    <form (ngSubmit)="onSubmit()" [formGroup]="ProfileUpdateForm" novalidate>
+      <div class="mb-3">
+        <select id="UpdateFor" formControlName="UpdateFor" class="form-select">
+          <option value="" disabled selected>Select Field</option>
+          <option *ngFor="let field of fields" [value]="field">{{ field }}</option>
+        </select>
+        <div class="text-danger" *ngIf="submitted && ProfileUpdateForm.controls['UpdateFor'].invalid">
+          Select Field!
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <input appAutocompleteOff type="text" id="UpdateTo" class="form-control" formControlName="UpdateTo" placeholder="Provide Field to Update To"/>
+        <div class="text-danger" *ngIf="submitted && ProfileUpdateForm.controls['UpdateTo'].invalid">
+          Provide Field to Update To!
+        </div>
+      </div>
+
+      <div *ngIf="successMsg" class="alert alert-success text-center">
+        {{ successMsg }}
+      </div>
+
+      <div *ngIf="errorMsg" class="alert alert-danger text-center">
+        {{ errorMsg }}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- Optional loader -->
+<div *ngIf="isLoading" class="loader">
+  <app-loader></app-loader>
+</div>
