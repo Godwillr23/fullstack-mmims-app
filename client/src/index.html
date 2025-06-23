@@ -13,5 +13,19 @@
 <body>
   <app-root></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      for (let registration of registrations) {
+        registration.unregister().then(() => {
+          console.log('✅ Old service worker unregistered');
+        });
+      }
+    }).catch(err => {
+      console.error('SW unregister error:', err);
+    });
+  }
+</script>
+
 </body>
 </html>

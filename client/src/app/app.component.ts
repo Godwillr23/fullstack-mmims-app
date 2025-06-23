@@ -66,33 +66,34 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit(): void {
-
+ngOnInit(): void {
+  if (isPlatformBrowser(this.platformId)) {
     const currentRoute = window.location.pathname;
-    if(currentRoute.includes('login') || currentRoute === '/'){
-        this.isPageOnLogin = false;
-      }
+
+    if (currentRoute.includes('login') || currentRoute === '/') {
+      this.isPageOnLogin = false;
+    }
 
     this.UserId = getUserId();
 
-    if (currentRoute !== '/' && currentRoute !== '/login') {
+    console.log("app.component: ngOnInit"+currentRoute);
+
+    if (currentRoute === '/profile/' || currentRoute === '/profile') {
       this.getUserProfile(Number(this.UserId));
     }
 
-    //this.getUserProfile(Number(this.UserId));
     this.getLocation();
-    if (isPlatformBrowser(this.platformId)) {
-      const pathname = location.pathname;  // safe now
-      const token = getToken();
 
-      if (token) {
-        this.authService.setAuthState(true);
-      } else {
-        this.authService.logout();
-        this.router.navigate(['/login']); // redirect to login
-      }
+    const token = getToken();
+    if (token) {
+      this.authService.setAuthState(true);
+    } else {
+      this.authService.logout();
+      this.router.navigate(['/login']);
     }
   }
+}
+
 
   getUserProfile(userId: number){
     this.loading = true;

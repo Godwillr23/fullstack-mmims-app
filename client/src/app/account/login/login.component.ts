@@ -59,13 +59,17 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
-    window.addEventListener('beforeinstallprompt', (event: any) => {
-      event.preventDefault();
-      this.deferredPrompt = event;
-      this.showInstallButton = true;  // Show the custom install button
-    });
-    this.getLocation();
+    if (isPlatformBrowser(this.platformId)) {
+      window.addEventListener('beforeinstallprompt', (event: any) => {
+        event.preventDefault();
+        this.deferredPrompt = event;
+        this.showInstallButton = true;
+      });
+
+      this.getLocation();
+    }
   }
+
 
   getLocation(): void {
 
@@ -111,11 +115,12 @@ export class LoginComponent {
   onSubmit(): void {
     this.submitted = true;
     this.errorMsg = '';
-    this.isLoading = true; // show loader
 
     if (this.loginForm.invalid) {
       return;
     }
+
+    this.isLoading = true; // show loader
 
     const { username, password } = this.loginForm.value;
 
